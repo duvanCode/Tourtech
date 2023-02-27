@@ -70,7 +70,8 @@ class ClientesController extends Controller
         //
 
             $productos = Producto::where('id',$id)->get();
-            return view('user.mostrarCompras',compact('productos'));
+            $productos2 = Producto::all();
+            return view('user.mostrarCompras',compact('productos'),compact('productos2'));
     }
 
     /**

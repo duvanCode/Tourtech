@@ -23,10 +23,6 @@ Route::get('/', function () {
     return view('prueba',compact('productos'));
 });
 
-Route::get('/mail',function(){
-    Mail::to('duvanyepezfa@gmail.com')->send(new OrdenPedida(Compra::find(34)));
-});
-
 Route::resource('/compra',ClientesController::class);
 
 Auth::routes();
