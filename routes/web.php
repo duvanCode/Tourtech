@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Producto;
 use App\Models\Compra;
 use App\http\Controllers\ClientesController;
+use App\http\Controllers\PedidosController;
+use App\http\Controllers\ProductosController;
 use App\Mail\OrdenPedida;
 use Illuminate\Support\Facades\Mail;
 
@@ -22,6 +24,14 @@ Route::get('/', function () {
     $productos = Producto::all();
     return view('prueba',compact('productos'));
 });
+Route::resource('/admin/pedidos',PedidosController::class);
+Route::resource('/admin/productos',ProductosController::class);
+
+Route::get('/admin', function(){
+    $productos = Producto::all();
+    return view('admin.dashboard',compact('productos'));
+})->middleware('admin');
+
 
 Route::resource('/compra',ClientesController::class);
 

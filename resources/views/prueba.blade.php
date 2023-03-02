@@ -29,6 +29,11 @@
                     </div>
 @endforeach
 </div>
+@if(Session::has('AccessD'))
+
+        <div class="row"><h5 class="botton-abajo">Acceso Denegado</h5></div>
+    @endif
+
 @endsection
 
 

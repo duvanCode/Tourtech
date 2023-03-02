@@ -28,8 +28,6 @@ class ClientesController extends Controller
     public function create()
     {
         //
-        
-       
     }
 
     /**
@@ -53,6 +51,7 @@ class ClientesController extends Controller
         ]);
 
         $compra = $request->all();
+        $compra['Estado'] = 'Iniciado';
         $compraid = Compra::create($compra);
         $productos = Producto::where('id',$request['producto_id'])->get();
         Mail::to('duvanyepezfa@gmail.com')->send(new OrdenPedida(Compra::find($compraid->id)));

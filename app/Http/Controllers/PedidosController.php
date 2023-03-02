@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Compra;
+use Illuminate\Support\Facades\Session;
 
-class AdminUsercontroller extends Controller
+class PedidosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +20,8 @@ class AdminUsercontroller extends Controller
     public function index()
     {
         //
-        return view('dashboard');
+        $pedidos = Compra::all()->sortByDesc('created_at');
+        return view('pedidos.pedidosindex',compact('pedidos'));
     }
 
     /**
@@ -51,6 +54,8 @@ class AdminUsercontroller extends Controller
     public function show($id)
     {
         //
+        $compra = Compra::findOrFail($id);
+        return view('pedidos.mostrarPedidos',compact('compra'));
     }
 
     /**
@@ -62,6 +67,7 @@ class AdminUsercontroller extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -74,6 +80,31 @@ class AdminUsercontroller extends Controller
     public function update(Request $request, $id)
     {
         //
+        $pedido = $request->all();
+        switch ($pedido['valor']) {
+            case 1:
+                // code...
+            $pedido['Estado'] = 'En Proceso';
+                break;
+            case 2:
+                // code...
+            $pedido['Estado'] = 'Completado';
+                break;
+            case 3:
+                // code...
+            $pedido['Estado'] = 'Fallido';
+                break;
+
+            default:
+                // code...
+            $pedido['Estado'] = 'Iniciado';
+                break;
+        }
+
+        Compra::findOrFail($id)->update($pedido);
+        Session::flash('actualizado','registro actualizado con exito');
+        return redirect('/admin/pedidos');
+
     }
 
     /**

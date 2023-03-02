@@ -27,7 +27,7 @@
                         @foreach($productos as $producto)
                         <h1 class="display-5 fw-bolder">{{$producto->Nombre}}</h1>
                         <div class="fs-5 mb-5">
-                            <span>{{$producto->Precio}}COP</span>
+                            <span>{{$producto->Precio}} COP</span>
                         </div>
                         <p class="lead">{!!nl2br($producto->Descripcion,false)!!}</p>
                         <div class="d-flex">

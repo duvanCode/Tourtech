@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Auth::viaRequest('query', function (Request $request) {
+            // Return an instance of Illuminate\Contracts\Auth\Guard...
+            $usuario = Auth::User();
+            if($usuario){
+            if($usuario->rol == 'Administrador'){
+            return $usuario->rol;
+            }
+            }
+     });
         //
     }
 }

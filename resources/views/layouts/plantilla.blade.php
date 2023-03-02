@@ -38,6 +38,7 @@ icon-shape {
             document.querySelector("body > section > div > div > div.card.col-md-8 > div.card-body > form > div:nth-child(7) > div > div > input.quantity-field.border-0.text-center.w-25").valueAsNumber = document.querySelector("body > section > div > div > div.card.col-md-8 > div.card-body > form > div:nth-child(7) > div > div > input.quantity-field.border-0.text-center.w-25").valueAsNumber - 1
            }
        </script>
+       @yield('head')
     </head>
     <body>
         <!-- Navigation-->
@@ -58,6 +59,12 @@ icon-shape {
                                 <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
                             </ul>
                         </li>
+                        @auth('admin')
+                               
+                                <li class="nav-item">
+                                    <div class="padding-lr"><a class="nav-link " href="{{asset('/admin')}}">Administrador</a></div>
+                                </li>
+                                @endauth
                     </ul>
                      @guest
                             @if (Route::has('login'))

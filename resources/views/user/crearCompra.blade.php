@@ -26,41 +26,41 @@
                         <div class="row">
     <div class="col">
       <label for="inputEmail4">Nombre</label>
-      <input type="name" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="inputEmail4" >
+      <input type="name" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" id="inputEmail4" value="{{old('Nombre')}}" >
       @error('Nombre')<div class="invalid-feedback">{{$message}}</div>@enderror
     </div>
     <div class="col">
       <label for="inputPassword4">Telefono</label>
-      <input type="telefono" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" id="" >
+      <input type="telefono" name="Telefono" class="form-control @error('Telefono') is-invalid @enderror" value="{{old('Telefono')}}" id="" >
       @error('Telefono')<div class="invalid-feedback">{{$message}}</div>@enderror
     </div>
   </div>
   <div class="row">
     <div class="col">
       <label for="inputEmail4">Cedula</label>
-      <input type="name" name="Cedula" class="form-control @error('Cedula') is-invalid @enderror" id="inputEmail4" >
+      <input type="name" name="Cedula" class="form-control @error('Cedula') is-invalid @enderror" value="{{old('Cedula')}}" id="inputEmail4" >
       @error('Cedula')<div class="invalid-feedback">{{$message}}</div>@enderror
     </div>
     <div class="col">
       <label for="inputPassword4">Correo</label>
-      <input type="email" name="Correo" class="form-control @error('Correo') is-invalid @enderror" id="" >
+      <input type="email" name="Correo" class="form-control @error('Correo') is-invalid @enderror" value="{{old('Correo')}}" id="" >
       @error('Correo')<div class="invalid-feedback">{{$message}}</div>@enderror
     </div>
   </div>
   <div class="form-group">
     <label for="inputAddress">Direccion</label>
-    <input type="text" name="Direccion" class="form-control @error('Direccion') is-invalid @enderror" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" name="Direccion" class="form-control @error('Direccion') is-invalid @enderror" value="{{old('Direccion')}}" id="inputAddress" placeholder="1234 Main St">
     @error('Direccion')<div class="invalid-feedback">{{$message}}</div>@enderror
   </div>
   <div class="row">
     <div class="col">
       <label for="inputCity">Ciudad</label>
-      <input type="text" name="Ciudad" class="form-control @error('Ciudad') is-invalid @enderror" id="inputCity">
+      <input type="text" name="Ciudad" class="form-control @error('Ciudad') is-invalid @enderror" value="{{old('Ciudad')}}" id="inputCity">
       @error('Ciudad')<div class="invalid-feedback">{{$message}}</div>@enderror
     </div>
     <div class="col">
       <label for="inputState">Departamento</label>
-      <select name="Departamento" class="form-control @error('Departamento') is-invalid @enderror">
+      <select name="Departamento" value="{{old('Departamento')}}" class="form-control @error('Departamento') is-invalid @enderror">
         <option></option>
         <option>Amazonas</option>
 <option>Antioquia</option>
